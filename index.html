@@ -197,8 +197,15 @@ Robot-Free <span style="color: #4285F4;">Vi</span>suo-<span style="color: #EA433
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
+      <div class="12u$">
+            <span class="image fit" style="border: 1px solid; border-color: #888888;">
+              <img src="static/figures/teaser.png" alt="teaser">      
+            </span>
+        </div>
+      <br>
+      <br>
       <video id="teaser" autoplay muted loop playsinline height="100%">
-        <source src="./static/videos/teaser.mp4"
+        <source src="static/videos/ViTaMIn-B_Video_720p.mp4"
                 type="video/mp4">
       </video>
       <!-- <h2 class="subtitle has-text-centered">
@@ -218,31 +225,25 @@ Robot-Free <span style="color: #4285F4;">Vi</span>suo-<span style="color: #EA433
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            In this paper, we present <b>ViTaMIn-B</b>, a portable
-handheld system specifically designed for collecting visuo-tactile
-demonstrations in contact-rich bimanual manipulation tasks.
-While existing handheld data collection devices have made substantial progress, most focus on single-arm operations or lack
-integrated tactile sensing capabilities. To address the growing
-need for bimanual manipulation data, the system introduces
-key improvements: (1) novel compliant tactile sensors with
-high-resolution cameras that can perceive bidirectional contact
-signals and withstand large tangential forces, (2) lightweight
-and ergonomic mechanical design achieved by eliminating
-onboard computing modules and simplifying hardware architecture, reducing operator fatigue during extended data
-collection sessions, and (3) specialized bimanual coordination
-with both hands' poses captured directly within the same
-coordinate system and strict time synchronization across all
-sensing modalities. Comprehensive user studies demonstrate
-efficient operation across different user experience levels, with
-even inexperienced users capable of collecting high-quality data
-with minimal training. We validate the effectiveness of the
-collected multimodal data by training policies on challenging
-bimanual tasks, showing that incorporating tactile feedback
-substantially improves success rates compared to vision-only
-approaches. The results indicate that ViTaMIn-B advances
-portable data collection by providing a more accessible and
-specialized solution for bimanual visuo-tactile demonstration
-collection.
+             Collecting high-quality demonstrations for biman-
+ual, contact-rich manipulation remains a significant challenge
+, as existing handheld, robot-free systems often lack robust
+tactile sensing or reliable bimanual pose tracking. We propose
+ViTaMIn-B, a handheld vision-tactile demonstration collection
+system for contact-rich bimanual manipulation tasks. We first
+design DuoTact, a novel compliant visuotactile sensor built
+with a flexible frame to withstand large contact forces during
+manipulation while capturing high-resolution contact geometry.
+To enhance the cross-sensor generalizability, we propose to
+reconstruct the sensor’s global deformation as a 3D point cloud
+and use it as the policy input. We further develop robust, unified
+6-DoF bimanual pose acquisition using Meta Quest controllers,
+which eliminates the trajectory drift common in SLAM-based
+methods. Experiments on 4 diverse bimanual manipulation
+tasks validate the advantages of our system over existing
+systems. Comprehensive user studies confirm the system is
+efficient and highly usable for both novice and experienced
+users.
           </p>
         </div>
         <div class="12u$">
@@ -290,23 +291,23 @@ collection.
     <div class="columns is-centered">
       <div class="column is-full-width">
         <h3 class="title is-4 has-text-centered">Hardware Design</h3>
+        <span class="image fit is-centered has-text-centered" style="float: left; margin-right:  20px;border: 1px solid; border-color: #888888;width: 300px; height: auto;">
+              <img src="static/figures/system.png" alt="Hardware-Design">      
+          </span>
         <p>We maintain the
 ArUco marker-based gripper width detection approach, with
 two markers providing real-time width measurement up to a
 maximum grasping width of 8 cm. </p>
         <p>However, 
 two key improvements were introduced:  we oriented the GoPro
-camera downward such that the gripper’s working area is
-centered within the camera’s field of view, thereby capturing
+camera downward such that the gripper's working area is
+centered within the camera's field of view, thereby capturing
 richer visual information. More importantly, we redesigned
 the mechanical structure to achieve a lighter and more
 ergonomic device that enhances usability during extended
 data collection sessions.</p>
         <br>
-        <span class="image fit" style="border: 1px solid; border-color: #888888;">
-              <img src="static/photos/pdf_image.png" alt="Hardware-Design">      
-                <!--  undo 随便找的图片 -->
-          </span>
+        
       </div>
     </div>
   </div>
@@ -320,20 +321,33 @@ data collection sessions.</p>
           <div class="column is-12">
             <div class="content">
               <h4 class="title is-5">Structural Composition</h4>
-              <ul>
-                <li><strong>TPU Frame</strong>: Flexible metamaterial structure for shape adaptation</li>
-                <li><strong>PVC Film</strong>: 2mm transparent film for load protection</li>
-                <li><strong>Contact Layer (Fingertip & Skin)</strong>: Silicone base, reflective coating, black overlay</li>
-                <li><strong>Multi-color LED Array</strong>: Circular RGB configuration for deformation visualization</li>
-                <li><strong>Fingertip Casing</strong>: The mechanical interface connecting the fingertip’s contact layer to the TPU frame</li>
-                <li><strong>RGB Camera</strong>: 640×480 resolution at 30 fps for internal monitoring</li>
-              </ul>
+              
+              <div style="display: flex; align-items: flex-start; gap: 20px; margin: 20px 0;">
+                <!-- 左边：图片 -->
+                <span class="image fit" 
+                      style="display:block; width:400px; border:1px solid #888888; flex-shrink:0;">
+                  <img src="static/figures/sensor_bomb.png" alt="process" style="width:100%; height:auto;">
+                </span>
+
+                <!-- 右边：文字说明 -->
+                <ul style="margin:0; padding-left:20px; list-style-type:disc;">
+                  <li><strong>TPU Frame</strong>: Flexible metamaterial structure for shape adaptation</li>
+                  <li><strong>PVC Film</strong>: 2mm transparent film for load protection</li>
+                  <li><strong>Contact Layer (Fingertip & Skin)</strong>: Silicone base, reflective coating, black overlay</li>
+                  <li><strong>Multi-color LED Array</strong>: Circular RGB configuration for deformation visualization</li>
+                  <li><strong>Fingertip Casing</strong>: The mechanical interface connecting the fingertip’s contact layer to the TPU frame</li>
+                  <li><strong>RGB Camera</strong>: 640×480 resolution at 30 fps for internal monitoring</li>
+                </ul>
+              </div>
+
+              
               <div class="container is-max-desktop">
                 <h2 class="title is-5">Fabrication Process</h2>
                 <div class="content has-text-justified">
                   <div class="notification is-info is-light">
                     <p><strong>Manufacturing Technique:</strong> All structural components were produced using additive manufacturing, with TPU frames 3D-printed and other parts created via photocuring resin printing.</p>
                   </div>
+    
                   <div class="steps">
                     <div class="step-item">
                       <div class="step-content">
@@ -369,23 +383,24 @@ data collection sessions.</p>
                         <p>Black paint mixture (Novocs Matte matting agent, Ecollex 00-10, black pigment in 26:6:1 ratio) uniformly airbrushed and cured at 50°C for 20 minutes.</p>
                       </div>
                     </div>
+<br>
+                    <span class="image fit" style="display:block; width:400px; margin:0 auto; border: 1px solid; border-color: #888888;">
+                  <img src="static/figures/process.png" alt="process">      
+                </span>
+                                <p class="is-italic has-text-grey has-text-centered">Diagram of the fabrication process for DuoTact</p>
+
                   </div>
                 </div>
               </div>
               <br>
               <div>
-                <span class="image fit" style="border: 1px solid; border-color: #888888;">
-                  <img src="static/photos/pdf_image.png" alt="Hardware-Design">      
-                  <!--  undo 随便找的图片 -->
-                </span>
-                <p class="is-italic has-text-grey">Fig. 1: Tactile sensor structural composition and working principle</p>
               </div>
             </div>
           </div>
         </div>
         <br>
         <div class="container is-max-desktop">
-          <h2 class="title is-5">Sensor Assembly Process</h2>
+          <h2 class="title is-5">Global Deformation Reconstruction</h2>
           <div class="steps">
             <div class="step-item">
                 <div class="step-content">
@@ -411,11 +426,11 @@ data collection sessions.</p>
         </div>
         <br>
         <div>
-          <span class="image fit" style="border: 1px solid; border-color: #888888;">
-            <img src="static/photos/pdf_image.png" alt="Hardware-Design">      
-            <!--  undo 随便找的图片 -->
+          <span class="image fit" style="display:block; width:400px; margin:0 auto;border: 1px solid; border-color: #888888;">
+            <img src="static/figures/construction.png" alt="reconstruction">      
           </span>
-          <p class="is-italic has-text-grey">Fig. 1: Tactile sensor structural composition and working principle</p>
+          <p class="is-italic has-text-grey has-text-centered">Principle and result diagram of point cloud recon-
+struction.</p>
         </div>
 </section>
 
@@ -469,6 +484,9 @@ data collection sessions.</p>
       <div class="container is-max-desktop">
       <div class="content has-text-centered">
           <h3 class="title is-4">Generalization</h3>
+              <div class="column is-12">
+                <img src="static/figures/results.png" alt="coverage photo">
+              </div>
               <video id="Generalization" autoplay muted loop playsinline width="100%">
                 <source src="./static/videos/generalization.mp4" type="video/mp4">
               </video>
