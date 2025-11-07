@@ -120,7 +120,7 @@ Robot-Free Visuo-Tactile Manipulation Interface">
               <!-- Code Link. -->
               <span class="link-block">
                 <a
-                   href="https://chuanyune.github.io/ViTaMIn-B_page/"
+                   href="https://github.com/chuanyune/ViTaMIn-B_code?tab=readme-ov-file"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-github"></i>
@@ -214,25 +214,9 @@ Robot-Free Visuo-Tactile Manipulation Interface">
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-             Collecting high-quality demonstrations for biman-
-ual, contact-rich manipulation remains a significant challenge
-, as existing handheld, robot-free systems often lack robust
-tactile sensing or reliable bimanual pose tracking. We propose
-ViTaMIn-B, a handheld vision-tactile demonstration collection
-system for contact-rich bimanual manipulation tasks. We first
-design DuoTact, a novel compliant visuotactile sensor built
-with a flexible frame to withstand large contact forces during
-manipulation while capturing high-resolution contact geometry.
-To enhance the cross-sensor generalizability, we propose to
-reconstruct the sensor’s global deformation as a 3D point cloud
-and use it as the policy input. We further develop robust, unified
-6-DoF bimanual pose acquisition using Meta Quest controllers,
-which eliminates the trajectory drift common in SLAM-based
-methods. Experiments on 4 diverse bimanual manipulation
-tasks validate the advantages of our system over existing
-systems. Comprehensive user studies confirm the system is
-efficient and highly usable for both novice and experienced
-users.
+            Handheld devices have opened up unprecedented opportunities to collect large-scale, high-quality demonstrations efficiently. However, existing systems often lack robust tactile sensing or reliable pose tracking to handle complex interaction scenarios, especially for bimanual and contact-rich tasks. In this work, we propose ViTaMIn-B, a more capable and efficient handheld data collection system for such tasks. 
+            We first design DuoTact, a novel compliant visuo-tactile sensor built with a flexible frame to withstand large contact forces during manipulation while capturing high-resolution contact geometry. To enhance the cross-sensor generalizability, we propose reconstructing the sensor's global deformation as a 3D point cloud and using it as the policy input.
+            We further develop a robust, unified 6-DoF bimanual pose acquisition process using Meta Quest controllers, which eliminates the trajectory drift issue in common SLAM-based methods. Comprehensive user studies confirm the efficiency and high usability of ViTaMIn-B among novice and expert operators. Furthermore, experiments on four bimanual manipulation tasks demonstrate its superior task performance relative to existing systems.
           </p>
         <!-- </div>
         <div class="12u$">
@@ -260,13 +244,12 @@ users.
   <div class="container is-max-desktop">
     <div class="columns is-centered">
       <div class="column is-full-width">
-        <h3 class="title is-4  has-text-centered">System Overview</h3>
+        <h3 class="title is-4 has-text-centered">System Overview</h3>
         <div class="content">
           <ul>
-            <li>Utilize the Meta Quest 3 for pose tracking</li>
-            <li>Novel compliant tactile sensors with high-resolution cameras</li>
-            <li>Lightweight and ergonomic mechanical design</li>
-            <li>Specialized bimanual coordination</li>
+            <li>DuoTact Visuotactile Sensor</li>
+            <li>Generalizable Tactile Representation</li>
+            <li>Robust Bimanual Pose Tracking</li>
           </ul>
   </div>
       </div>
@@ -282,18 +265,16 @@ users.
         <span class="image fit is-centered has-text-centered" style="float: left; margin-right:  20px;border: 1px solid; border-color: #888888;width: 300px; height: auto;">
               <img src="static/figures/system.png" alt="Hardware-Design">      
           </span>
-        <p>We maintain the
-ArUco marker-based gripper width detection approach, with
-two markers providing real-time width measurement up to a
-maximum grasping width of 8 cm. </p>
-        <p>However, 
-two key improvements were introduced:  we oriented the GoPro
-camera downward such that the gripper's working area is
-centered within the camera's field of view, thereby capturing
-richer visual information. More importantly, we redesigned
-the mechanical structure to achieve a lighter and more
-ergonomic device that enhances usability during extended
-data collection sessions.</p>
+        <p>ViTaMIn-B is a system developed for bimanual visuo-tactile data collection. The system integrates a GoPro Hero 10 camera for vision observation, Meta Quest 3 controllers for 6-DoF bimanual pose acquisition, and two DuoTact sensors for tactile sensing. Gripper width with a maximum span of 8 cm is computed by detecting ArUco markers on the gripper. </p>
+        <p>As bimanual manipulation demonstration collection occupies both hands, a foot pedal is used to trigger the start and end of recording, enabling efficient single-operator data collection. </p>
+        <p> Several improvements were introduced:  </p>
+
+        <p>1. The novel visuotactile sensors (DuoTact) are developed to produce clearer tactile signals across diverse contact scenarios and better contact support.</p>
+        <p>2. We replace the SLAM-based tracking with the Meta Quest 3, providing accurate, real-time 6-DoF poses for both handheld devices. </p>
+        <p>3. The mechanical structure is orignally designed for improved ergonomics and reduced weight by removing onboard computing (e.g., Raspberry Pi) and interfacing all sensors directly with the host computer. </p>
+        <p>4. All sensing modalities are latency-calibrated and synchronized to ensure precise spatiotemporal alignment.</p>
+
+
         <br>
         
       </div>
@@ -320,10 +301,9 @@ data collection sessions.</p>
                 <!-- 右边：文字说明 -->
                 <ul style="margin:0; padding-left:20px; list-style-type:disc;">
                   <li><strong>TPU Frame</strong>: Flexible metamaterial structure for shape adaptation</li>
-                  <li><strong>PVC Film</strong>: 2mm transparent film for load protection</li>
-                  <li><strong>Contact Layer (Fingertip & Skin)</strong>: Silicone base, reflective coating, black overlay</li>
-                  <li><strong>Multi-color LED Array</strong>: Circular RGB configuration for deformation visualization</li>
-                  <li><strong>Fingertip Casing</strong>: The mechanical interface connecting the fingertip’s contact layer to the TPU frame</li>
+                  <li><strong>Contact Layer</strong>: The multi-layer structure consists of: A 1.6-mm-thick transparent PVC film to support the contact layer; A transparent silicone gel base deforming to reveal local contact conditions; A reflective layer; A black coating overlay. </li>
+                  <li><strong>Black Rubber Sheet</strong>: Black rubber sheets are heat-sealed on the two sides of the TPU frame to prevent ambient light.</li>
+                  <li><strong>LED Strip Lights</strong>: To capture the contact geometry details on the surface, programmable LED strip lights (400 mm × 2.7 mm) are integrated within the TPU frame. Moreover, the illumination can enhance the visibility of the contact layer’s edges in the image, facilitating more accurate point cloud reconstruction.</li>
                   <li><strong>RGB Camera</strong>: 640×480 resolution at 30 fps for internal monitoring</li>
                 </ul>
               </div>
@@ -332,46 +312,37 @@ data collection sessions.</p>
               <div class="container is-max-desktop">
                 <h2 class="title is-5">Fabrication Process</h2>
                 <div class="content has-text-justified">
-                  <div class="notification is-info is-light">
-                    <p><strong>Manufacturing Technique:</strong> All structural components were produced using additive manufacturing, with TPU frames 3D-printed and other parts created via photocuring resin printing.</p>
-                  </div>
     
                   <div class="steps">
                     <div class="step-item">
                       <div class="step-content">
-                        <p><strong>Skin Component Preparation</strong></p>
-                        <p>PVC film inserted into mold cavity, transparent silicone adhesive applied around edges, and approximately 10g of degassed transparent silicone gel (Wacker Elastosil RT 601, 9:1 ratio) poured into mold.</p>
+                        <p>(1) A PVC film is inserted into the mold cavity and coated with a transparent silicone adhesive. Subsequently, 10g of transparent silicone gel (Wacker Elastosil® RT 601, A:B = 9:1 by weight) is poured into the mold and cured at 60°C for 30 minutes.
+                        </p>
                       </div>
                     </div>
                     <br>
                     <div class="step-item">
                       <div class="step-content">
-                        <p><strong>Fingertip Component Preparation</strong></p>
-                        <p>LED strip inserted into fingertip casing groove, placed upside down on 30mm hemispherical mold, and degassed transparent silicone gel poured for formation.</p>
+                        <p>(2) A reflective coating, consisting of Posilicone Translucent silicone (A:B = 1:1 by weight) and white pigment (2:0.1 weight ratio), is applied onto the cured transparent silicone surface. This layer is then cured at 60°C for 20 minutes.
+                        </p>
                       </div>
                     </div>
                     <br>
                     <div class="step-item">
                       <div class="step-content">
-                        <p><strong>Curing Process</strong></p>
-                        <p>Both contact layer configurations cured at 60°C for 30 minutes to achieve optimal material properties.</p>
+                        <p>(3) A black coating, consisting of Novocs Matte matting agent, Ecoflex 00-10 (A:B = 1:1 by weight), and black pigment (26:6:1 weight ratio), is uniformly airbrushed over the reflective layer and dried at 60°C for 20 minutes.
+                        </p>
                       </div>
                     </div>
                     <br>
                     <div class="step-item">
                       <div class="step-content">
-                        <p><strong>Reflective Coating Application</strong></p>
-                        <p>Special mixture of Posilicone Translucent silicone (1:1 ratio), white pigment, and silver powder (2:0.1:0.05 ratio) applied as thin uniform layer and cured at 50°C for 20 minutes.</p>
+                        <p>(4) For final assembly, the two fabricated contact layers are slid into slots on the TPU frame. A black rubber sheet is then attached to the frame's exterior via heat sealing. Subsequently, the LED strip light is threaded through designated slots on the frame. Finally, the RGB camera and the TPU frame assembly are mounted onto the finger bracket using screws and nuts.
+                        </p>
                       </div>
                     </div>
                     <br>
-                    <div class="step-item">
-                      <div class="step-content">
-                        <p><strong>Final Protective Layer</strong></p>
-                        <p>Black paint mixture (Novocs Matte matting agent, Ecollex 00-10, black pigment in 26:6:1 ratio) uniformly airbrushed and cured at 50°C for 20 minutes.</p>
-                      </div>
-                    </div>
-<br>
+
                     <span class="image fit" style="display:block; width:400px; margin:0 auto; border: 1px solid; border-color: #888888;">
                   <img src="static/figures/process.png" alt="process">      
                 </span>
@@ -389,28 +360,7 @@ data collection sessions.</p>
         <br>
         <div class="container is-max-desktop">
           <h2 class="title is-5">Global Deformation Reconstruction</h2>
-          <div class="steps">
-            <div class="step-item">
-                <div class="step-content">
-                <h5 class="title is-6 ">Step 1: Finger Skin Installation</h5>
-                <p>Finger skin component secured by snapping into reserved slots on TPU framework sides. Integrated PVC membrane firmly fixed using six M1.6 screws and corresponding nuts.</p>
-              </div>
-            </div>
-            <br>
-            <div class="step-item">
-                <div class="step-content">
-                <h5 class="title is-6">Step 2: Fingertip and Light Integration</h5>
-                <p>Fingertip component attached to TPU framework top via four mounting holes in connector piece. LED strip light passed through external light strip slots on TPU frame.</p>
-              </div>
-            </div>
-            <br>
-            <div class="step-item">
-                <div class="step-content">
-                <h5 class="title is-6">Step 3: Camera Mounting and Final Assembly</h5>
-                <p>RGB camera mounted to finger bracket using screws and nuts. Fully assembled finger completed by sliding TPU frame into bracket grooves, ensuring precise alignment and secure fit.</p>
-              </div>
-            </div>
-          </div>
+          The captured raw tactile images may vary across sensors due to manufacturing imperfections, which deteriorates the cross-sensor generalizability of learned policies. Therefore, we propose to reconstruct the globally deformed point cloud of the sensor from a single image by utilizing the edge features and spatial constraints present in the image. This point cloud is then used as the input to the policy network. The reconstruction principle is shown in figure below.
         </div>
         <br>
         <div>

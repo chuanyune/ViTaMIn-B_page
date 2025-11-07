@@ -3,12 +3,7 @@
 
 If you find Nerfies useful for your work please cite:
 ```
-@article{liu2025vitamin,
-  title={ViTaMIn: Learning Contact-Rich Tasks Through Robot-Free Visuo-Tactile Manipulation Interface},
-  author={Liu, Fangchen and Li, Chuanyu and Qin, Yihua and Shaw, Ankit and Xu, Jing and Abbeel, Pieter and Chen, Rui},
-  journal={arXiv preprint arXiv:2504.06156},
-  year={2025}
-}
+---
 ```
 
 # Website License
