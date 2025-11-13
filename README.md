@@ -3,7 +3,12 @@
 
 If you find Nerfies useful for your work please cite:
 ```
----
+@article{li2025vitamin,
+  title={ViTaMIn-B: A Reliable and Efficient Visuo-Tactile Bimanual Manipulation Interface},
+  author={Li, Chuanyu and Liu, Chaoyi and Wang, Daotan and Zhang, Shuyu and Li, Lusong and Zeng, Zecui and Liu, Fangchen and Xu, Jing and Chen, Rui},
+  journal={arXiv preprint arXiv:2511.05858},
+  year={2025}
+}
 ```
 
 # Website License
